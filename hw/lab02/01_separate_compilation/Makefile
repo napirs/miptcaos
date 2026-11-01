@@ -11,11 +11,11 @@ OBJS = $(addprefix $(OBJDIR)/, $(SRCS:.cpp=.o))
 all: $(TARGET)
 
 $(TARGET): $(OBJS)
-  $(CXX) $(CXXFLAGS) -o $@ $^
+	$(CXX) $(CXXFLAGS) -o $@ $^
 
 $(OBJDIR)/%.o: %.cpp calc.h
-  @mkdir -p $(OBJDIR)
-  $(CXX) $(CXXFLAGS) -c $< -o $@
+	@mkdir -p $(OBJDIR)
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
-  rm -rf $(TARGET) $(OBJDIR)
+	rm -rf $(TARGET) $(OBJDIR)
