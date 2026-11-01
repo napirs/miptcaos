@@ -3,11 +3,12 @@ CXXFLAGS = -Wall -Wextra -MMD -MP
 
 MODE ?= release
 
-
 ifeq ($(MODE), debug)
 	CXXFLAGS += -g -O0
-else
+else ifeq ($(MODE), release)
 	CXXFLAGS += -O3
+else
+	$(error Ошибка: Неверный MODE '$(MODE)'. Используйте 'debug' или 'release'.)
 endif
 
 TARGET = calculator
